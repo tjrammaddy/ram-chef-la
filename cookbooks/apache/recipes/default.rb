@@ -18,3 +18,33 @@ service 'apache2' do
 	action [:start, :enable]
 end
 include_recipe 'apache::websites'
+
+# Create directories
+
+ directory '/opt/ftl/os_patching' do
+   owner 'root'
+     group 'root'
+     mode '0755'
+     action :create
+     end
+
+directory '/opt/ftl/os_patching/os_patch' do
+             owner 'root'
+               group 'root'
+                 mode '0755'
+                   action :create
+                   end
+
+                   directory '/opt/ftl/os_patching/pre_patch' do
+                     owner 'root'
+                       group 'root'
+                         mode '0757'
+                           action :create
+                           end
+
+                           directory '/opt/ftl/os_patching/post_patch' do
+                             owner 'root'
+                               group 'root'
+                                 mode '0757'
+                                   action :create
+                                   end
